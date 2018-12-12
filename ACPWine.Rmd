@@ -1,0 +1,73 @@
+---
+title: "ACP Wine"
+date: "4 mai 2017"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: scroll
+    social : ["facebook","instagram","linkedin"]
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(FactoMineR)
+library(ggplot2)
+library(factoextra)
+library(ggthemes)
+
+```
+
+Row {data-height=350}
+-----------------------------------------------------------------------
+
+###Data Description :
+```{r}
+data<-read.table("files/wine.txt", sep=",")
+data<-data[1:13]
+colnames(data)<-c("Alcohol","Malicacid","Ash","Alcalinity of ash","Magnesium","Total phenols","Flavanoids","Nonflavanoid phenols ","Proanthocyanins ","Color intensity","Hue","OD280/OD315 of diluted wines ","Proline ")
+# Pretraitement :
+data$Alcohol[which(data$Alcohol=="1")]<-"alcohol 1"
+data$Alcohol[which(data$Alcohol=="2")]<-"alcohol 2"
+data$Alcohol[which(data$Alcohol=="3")]<-"alcohol 3"
+# Descriptive statistics :
+summary(data)
+str(data)
+
+```
+
+Row {data-height=400}
+-----------------------------------------------------------------------
+
+### Chart Boxplot 
+
+
+```{r}
+p <- ggplot(data, aes(factor(data$Alcohol), data$Magnesium))
+p + geom_boxplot(fill=rainbow(3))+ theme(legend.position="none") 
+```
+
+Row {data-height=250}
+-----------------------------------------------------------------------
+
+### ACP
+
+```{r}
+acp<-PCA(data[,2:13],ncp=11,scale.unit=TRUE,graph = FALSE)
+
+####cercle de correlation
+plot.PCA(acp,axes = c(1,2),choix = "var",title = "Cercle de corrélations",col.hab = rainbow(12),col.quali = "cyan")
+###Screeplot
+fviz_screeplot(acp,choice="eigenvalue")
+fviz_pca_biplot(acp)
+###Représentation des variables par cos2
+fviz_cos2(acp, choice = "var",axes = c(1))
+fviz_cos2(acp, choice = "var",axes = c(2))
+fviz_cos2(acp, choice = "var",axes = c(3))
+###Représentation des variables par contribution
+fviz_contrib(acp, choice = "var",axes = c(1))
+fviz_contrib(acp, choice = "var",axes = c(2))
+fviz_contrib(acp, choice = "var",axes = c(3))
+
+
+```
+
