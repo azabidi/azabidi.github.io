@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>ACP Wine</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 64px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+
+.section h2 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h3 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h4 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h5 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h6 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Aziz Abidi</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="software.html">Programming</a>
+</li>
+<li>
+  <a href="projects.html">Projects</a>
+</li>
+<li>
+  <a href="ACPWine.html">ACP Wine</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="contact.html">
+    <span class="fa fa-envelope fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/azabidi">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://web.facebook.com/Abidi.Aziz">
+    <span class="fa fa-facebook fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/azabidi/">
+    <span class="fa fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">ACP Wine</h1>
+<h4 class="date"><em>4 mai 2017</em></h4>
+
+</div>
+
+
+<div id="row" class="section level2" data-height="350">
+<h2>Row</h2>
+<div id="data-description" class="section level3">
+<h3>Data Description :</h3>
+<pre class="r"><code>data&lt;-read.table(&quot;files/wine.txt&quot;, sep=&quot;,&quot;)
+data&lt;-data[1:13]
+colnames(data)&lt;-c(&quot;Alcohol&quot;,&quot;Malicacid&quot;,&quot;Ash&quot;,&quot;Alcalinity of ash&quot;,&quot;Magnesium&quot;,&quot;Total phenols&quot;,&quot;Flavanoids&quot;,&quot;Nonflavanoid phenols &quot;,&quot;Proanthocyanins &quot;,&quot;Color intensity&quot;,&quot;Hue&quot;,&quot;OD280/OD315 of diluted wines &quot;,&quot;Proline &quot;)
+# Pretraitement :
+data$Alcohol[which(data$Alcohol==&quot;1&quot;)]&lt;-&quot;alcohol 1&quot;
+data$Alcohol[which(data$Alcohol==&quot;2&quot;)]&lt;-&quot;alcohol 2&quot;
+data$Alcohol[which(data$Alcohol==&quot;3&quot;)]&lt;-&quot;alcohol 3&quot;
+# Descriptive statistics :
+summary(data)</code></pre>
+<pre><code>##    Alcohol            Malicacid          Ash        Alcalinity of ash
+##  Length:178         Min.   :11.03   Min.   :0.740   Min.   :1.360    
+##  Class :character   1st Qu.:12.36   1st Qu.:1.603   1st Qu.:2.210    
+##  Mode  :character   Median :13.05   Median :1.865   Median :2.360    
+##                     Mean   :13.00   Mean   :2.336   Mean   :2.367    
+##                     3rd Qu.:13.68   3rd Qu.:3.083   3rd Qu.:2.558    
+##                     Max.   :14.83   Max.   :5.800   Max.   :3.230    
+##    Magnesium     Total phenols      Flavanoids    Nonflavanoid phenols 
+##  Min.   :10.60   Min.   : 70.00   Min.   :0.980   Min.   :0.340        
+##  1st Qu.:17.20   1st Qu.: 88.00   1st Qu.:1.742   1st Qu.:1.205        
+##  Median :19.50   Median : 98.00   Median :2.355   Median :2.135        
+##  Mean   :19.49   Mean   : 99.74   Mean   :2.295   Mean   :2.029        
+##  3rd Qu.:21.50   3rd Qu.:107.00   3rd Qu.:2.800   3rd Qu.:2.875        
+##  Max.   :30.00   Max.   :162.00   Max.   :3.880   Max.   :5.080        
+##  Proanthocyanins  Color intensity      Hue        
+##  Min.   :0.1300   Min.   :0.410   Min.   : 1.280  
+##  1st Qu.:0.2700   1st Qu.:1.250   1st Qu.: 3.220  
+##  Median :0.3400   Median :1.555   Median : 4.690  
+##  Mean   :0.3619   Mean   :1.591   Mean   : 5.058  
+##  3rd Qu.:0.4375   3rd Qu.:1.950   3rd Qu.: 6.200  
+##  Max.   :0.6600   Max.   :3.580   Max.   :13.000  
+##  OD280/OD315 of diluted wines     Proline     
+##  Min.   :0.4800                Min.   :1.270  
+##  1st Qu.:0.7825                1st Qu.:1.938  
+##  Median :0.9650                Median :2.780  
+##  Mean   :0.9574                Mean   :2.612  
+##  3rd Qu.:1.1200                3rd Qu.:3.170  
+##  Max.   :1.7100                Max.   :4.000</code></pre>
+<pre class="r"><code>str(data)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    178 obs. of  13 variables:
+##  $ Alcohol                      : chr  &quot;alcohol 1&quot; &quot;alcohol 1&quot; &quot;alcohol 1&quot; &quot;alcohol 1&quot; ...
+##  $ Malicacid                    : num  14.2 13.2 13.2 14.4 13.2 ...
+##  $ Ash                          : num  1.71 1.78 2.36 1.95 2.59 1.76 1.87 2.15 1.64 1.35 ...
+##  $ Alcalinity of ash            : num  2.43 2.14 2.67 2.5 2.87 2.45 2.45 2.61 2.17 2.27 ...
+##  $ Magnesium                    : num  15.6 11.2 18.6 16.8 21 15.2 14.6 17.6 14 16 ...
+##  $ Total phenols                : int  127 100 101 113 118 112 96 121 97 98 ...
+##  $ Flavanoids                   : num  2.8 2.65 2.8 3.85 2.8 3.27 2.5 2.6 2.8 2.98 ...
+##  $ Nonflavanoid phenols         : num  3.06 2.76 3.24 3.49 2.69 3.39 2.52 2.51 2.98 3.15 ...
+##  $ Proanthocyanins              : num  0.28 0.26 0.3 0.24 0.39 0.34 0.3 0.31 0.29 0.22 ...
+##  $ Color intensity              : num  2.29 1.28 2.81 2.18 1.82 1.97 1.98 1.25 1.98 1.85 ...
+##  $ Hue                          : num  5.64 4.38 5.68 7.8 4.32 6.75 5.25 5.05 5.2 7.22 ...
+##  $ OD280/OD315 of diluted wines : num  1.04 1.05 1.03 0.86 1.04 1.05 1.02 1.06 1.08 1.01 ...
+##  $ Proline                      : num  3.92 3.4 3.17 3.45 2.93 2.85 3.58 3.58 2.85 3.55 ...</code></pre>
+</div>
+</div>
+<div id="row-1" class="section level2" data-height="400">
+<h2>Row</h2>
+<div id="chart-boxplot" class="section level3">
+<h3>Chart Boxplot</h3>
+<pre class="r"><code>p &lt;- ggplot(data, aes(factor(data$Alcohol), data$Magnesium))
+p + geom_boxplot(fill=rainbow(3))+ theme(legend.position=&quot;none&quot;) </code></pre>
+<p><img src="ACPWine_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+</div>
+<div id="row-2" class="section level2" data-height="250">
+<h2>Row</h2>
+<div id="acp" class="section level3">
+<h3>ACP</h3>
+<pre class="r"><code>acp&lt;-PCA(data[,2:13],ncp=11,scale.unit=TRUE,graph = FALSE)
+
+####cercle de correlation
+plot.PCA(acp,axes = c(1,2),choix = &quot;var&quot;,title = &quot;Cercle de correlations&quot;,col.hab = rainbow(12),col.quali = &quot;cyan&quot;)</code></pre>
+<p><img src="ACPWine_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>###Screeplot
+fviz_screeplot(acp,choice=&quot;eigenvalue&quot;)</code></pre>
+<p><img src="ACPWine_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<pre class="r"><code>fviz_pca_biplot(acp)</code></pre>
+<p><img src="ACPWine_files/figure-html/unnamed-chunk-3-3.png" width="672" /></p>
+<pre class="r"><code>###Repr?sentation des variables par cos2
+fviz_cos2(acp, choice = &quot;var&quot;,axes = c(1))</code></pre>
+<p><img src="ACPWine_files/figure-html/unnamed-chunk-3-4.png" width="672" /></p>
+<pre class="r"><code>fviz_cos2(acp, choice = &quot;var&quot;,axes = c(2))</code></pre>
+<p><img src="ACPWine_files/figure-html/unnamed-chunk-3-5.png" width="672" /></p>
+<pre class="r"><code>fviz_cos2(acp, choice = &quot;var&quot;,axes = c(3))</code></pre>
+<p><img src="ACPWine_files/figure-html/unnamed-chunk-3-6.png" width="672" /></p>
+<pre class="r"><code>###Repr?sentation des variables par contribution
+fviz_contrib(acp, choice = &quot;var&quot;,axes = c(1))</code></pre>
+<p><img src="ACPWine_files/figure-html/unnamed-chunk-3-7.png" width="672" /></p>
+<pre class="r"><code>fviz_contrib(acp, choice = &quot;var&quot;,axes = c(2))</code></pre>
+<p><img src="ACPWine_files/figure-html/unnamed-chunk-3-8.png" width="672" /></p>
+<pre class="r"><code>fviz_contrib(acp, choice = &quot;var&quot;,axes = c(3))</code></pre>
+<p><img src="ACPWine_files/figure-html/unnamed-chunk-3-9.png" width="672" /></p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
